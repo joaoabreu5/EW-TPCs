@@ -17,9 +17,14 @@ cidades.sort(key=ordCidade)
 ligacoes = mapa['ligações']
 ligacoes.sort(key=ordLigacao)
 
+dict_distritos = dict()
 dict_cidades = dict()
 for c in cidades:
     dict_cidades[c['id']] = c
+    if c['distrito'] in dict_distritos:
+        dict_distritos[c['distrito']].append(c['id'])
+    else:
+        dict_distritos[c['distrito']] = [c['id']]
     
 dict_ligacoes = dict()
 for l in ligacoes:
@@ -40,16 +45,30 @@ pagHTML = """<!DOCTYPE html>
         </center>
         <!-- Índice -->
         <a name="indice"/>
-        <h3>Índice</h3>
-        <ul>"""
+        <h2>Índice</h2>
+        <ul>"""   
 
-for c in cidades:
+for distrito in sorted(dict_distritos.keys()):
     pagHTML += f"""
             <li>
-                <a href="{c['id']}">{c['nome']}</a>
+                <h3>{distrito}</h3>
             </li>
-        """
+            
+            """
+
+    lista_cidades = dict_distritos[distrito]
+    pagHTML += """<ul>"""
     
+    for c_id in lista_cidades:
+        c = dict_cidades[c_id]
+        pagHTML += f"""
+                <li>
+                    <a href="{c['id']}">{c['nome']}</a>
+                </li>
+            """
+    pagHTML += """</ul>
+        """
+        
 pagHTML += """</ul>
     </body>
 </html>
@@ -65,7 +84,6 @@ try:
 except:
     pass
     
-
 for c in cidades:
     file_name = cidades_folder + c['id'] + ".html"
     file = open(file_name, "w")
