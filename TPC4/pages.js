@@ -314,7 +314,7 @@ exports.recordInsertedPage = function(task, d) {
                 
                 <ul class="w3-ul">
                     <li>
-                        <h3><b>Record Inserted</b></h3>
+                        <h3><b>Task Added</b></h3>
                     </li>
                     <li><b>What:</b> ${task.what}</li>
                     <li><b>Who:</b> ${task.who}</li>    
@@ -357,7 +357,7 @@ exports.recordUpdatedPage = function(task, d) {
                 
                 <ul class="w3-ul">
                     <li>
-                        <h3><b>Record Updated</b></h3>
+                        <h3><b>Task Updated</b></h3>
                     </li>
                     <li><b>What:</b> ${task.what}</li>
                     <li><b>Who:</b> ${task.who}</li>
@@ -400,7 +400,7 @@ exports.recordDeletedPage = function(task, d) {
                 
                 <ul class="w3-ul">
                     <li>
-                        <h3><b>Record Deleted</b></h3>
+                        <h3><b>Task Deleted</b></h3>
                     </li>
                     <li><b>What:</b> ${task.what}</li>
                     <li><b>Who:</b> ${task.who}</li>    
