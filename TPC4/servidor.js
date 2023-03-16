@@ -104,6 +104,32 @@ var alunosServer = http.createServer(function (req, res) {
                         res.end()
                     })
                 }
+                else if (/\/tasks\/todo\/[0-9]+$/i.test(req.url))
+                {
+                    id = req.url.substring(12)
+                    axios.get("http://localhost:3000/tasks?id=" + id)
+                    .then(response => {
+                        var task = response.data[0]
+                        task['done'] = false
+                        axios.put("http://localhost:3000/tasks/" + id, task)
+                            .then(resp => {
+                                console.log(resp.data);
+                                res.writeHead(201, {'Content-Type': 'text/html; charset=utf-8'})
+                                res.end(pages.recordUpdatedPage(task, d))
+                            })
+                            .catch(error => {
+                                console.log('Erro: ' + error);
+                                res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'})
+                                res.write("<p>Unable to update record...</p>")
+                                res.end()
+                            });
+                    })
+                    .catch(function(erro){
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.write("<p>Não foi possível obter a lista de tarefas... Erro: " + erro)
+                        res.end()
+                    })
+                }
                 else if (/\/tasks\/edit\/[0-9]+$/i.test(req.url))
                 {
                     id_tarefa = req.url.substring(12)

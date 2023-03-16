@@ -106,6 +106,7 @@ exports.initialPage= function (users, tasks, d) {
                             <td>
                                 <a href="/tasks/${tasks[i].id}">[Info]</a>
                                 <a href="/tasks/edit/${tasks[i].id}">[Edit]</a>
+                                <a href="/tasks/todo/${tasks[i].id}">[To do]</a>
                                 <a href="/tasks/delete/${tasks[i].id}">[Delete]</a>
                             </td>
                         </tr>`
@@ -272,6 +273,7 @@ exports.editTaskPage = function (users, tasks, d, task) {
                             <td>
                                 <a href="/tasks/${tasks[i].id}">[Info]</a>
                                 <a href="/tasks/edit/${tasks[i].id}">[Edit]</a>
+                                <a href="/tasks/todo/${tasks[i].id}">[To do]</a>
                                 <a href="/tasks/delete/${tasks[i].id}">[Delete]</a>
                             </td>
                         </tr>`

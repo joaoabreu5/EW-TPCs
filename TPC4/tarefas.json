@@ -31,7 +31,7 @@
       "who": "Fernando Alonso",
       "date": "2015-05-22",
       "desc": "Teste Tarefa 3...",
-      "done": true,
+      "done": false,
       "id": 3
     },
     {
@@ -39,7 +39,7 @@
       "who": "Fernando Alonso",
       "date": "2015-12-22",
       "desc": "Teste Tarefa 4...",
-      "done": false,
+      "done": true,
       "id": 4
     }
   ]
