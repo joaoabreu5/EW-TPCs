@@ -61,6 +61,23 @@ var alunosServer = http.createServer(function (req, res) {
                     res.write(pages.newUserPage())
                     res.end()
                 }
+                else if (/\/tasks\/[0-9]+$/i.test(req.url))
+                {
+                    id = req.url.substring(7)
+                    axios.get("http://localhost:3000/tasks?id=" + id)
+                        .then(response => {
+                            var task = response.data[0]
+
+                            res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                            res.write(pages.recordInfoPage(task, d))
+                            res.end()
+                        })
+                        .catch(function(erro){
+                            res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                            res.write("<p>Não foi possível obter a tarefa... Erro: " + erro)
+                            res.end()
+                        })
+                }
                 else if (/\/tasks\/done\/[0-9]+$/i.test(req.url))
                 {
                     id = req.url.substring(12)

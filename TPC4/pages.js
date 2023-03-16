@@ -38,6 +38,8 @@ exports.initialPage= function (users, tasks, d) {
     pagHTML += `</select>
                         <label><b>Duedate</b></label>
                         <input class="w3-input w3-round" type="date" name="date"/>
+                        <label><b>Description</b></label>
+                        <input class="w3-input w3-round" type="text" name="desc"/>
                     </fieldset>
                     <br>
                     <button class="w3-btn w3-purple w3-mb-2" type="submit">Register</button>
@@ -73,6 +75,7 @@ exports.initialPage= function (users, tasks, d) {
                             <td>${tasks[i].who}</td>    
                             <td>${tasks[i].date}</td>
                             <td>
+                                <a href="/tasks/${tasks[i].id}">[Info]</a>
                                 <a href="/tasks/edit/${tasks[i].id}">[Edit]</a>
                                 <a href="/tasks/done/${tasks[i].id}">[Done]</a>
                                 <a href="/tasks/delete/${tasks[i].id}">[Delete]</a>
@@ -101,6 +104,7 @@ exports.initialPage= function (users, tasks, d) {
                             <td>${tasks[i].who}</td>    
                             <td>${tasks[i].date}</td>
                             <td>
+                                <a href="/tasks/${tasks[i].id}">[Info]</a>
                                 <a href="/tasks/edit/${tasks[i].id}">[Edit]</a>
                                 <a href="/tasks/delete/${tasks[i].id}">[Delete]</a>
                             </td>
@@ -200,6 +204,8 @@ exports.editTaskPage = function (users, tasks, d, task) {
     pagHTML += `</select>
                         <label><b>Duedate</b></label>
                         <input class="w3-input w3-round" type="date" name="date" value="${task['date']}"/>
+                        <label><b>Description</b></label>
+                        <input class="w3-input w3-round" type="text" name="desc" value="${task['desc']}"/>
                     </fieldset>
                     <br>
                     <button class="w3-btn w3-purple w3-mb-2" type="submit">Save</button>
@@ -235,6 +241,7 @@ exports.editTaskPage = function (users, tasks, d, task) {
                             <td>${tasks[i].who}</td>    
                             <td>${tasks[i].date}</td>
                             <td>
+                                <a href="/tasks/${tasks[i].id}">[Info]</a>
                                 <a href="/tasks/edit/${tasks[i].id}">[Edit]</a>
                                 <a href="/tasks/done/${tasks[i].id}">[Done]</a>
                                 <a href="/tasks/delete/${tasks[i].id}">[Delete]</a>
@@ -263,6 +270,7 @@ exports.editTaskPage = function (users, tasks, d, task) {
                             <td>${tasks[i].who}</td>    
                             <td>${tasks[i].date}</td>
                             <td>
+                                <a href="/tasks/${tasks[i].id}">[Info]</a>
                                 <a href="/tasks/edit/${tasks[i].id}">[Edit]</a>
                                 <a href="/tasks/delete/${tasks[i].id}">[Delete]</a>
                             </td>
@@ -309,6 +317,7 @@ exports.recordInsertedPage = function(task, d) {
                     <li><b>What:</b> ${task.what}</li>
                     <li><b>Who:</b> ${task.who}</li>    
                     <li><b>Duedate:</b> ${task.date}</li>
+                    <li><b>Description:</b> ${task.desc}</li>
                     <li><b>Done:</b> ${task.done}</li>
                 </ul>
 
@@ -349,8 +358,9 @@ exports.recordUpdatedPage = function(task, d) {
                         <h3><b>Record Updated</b></h3>
                     </li>
                     <li><b>What:</b> ${task.what}</li>
-                    <li><b>Who:</b> ${task.who}</li>    
+                    <li><b>Who:</b> ${task.who}</li>
                     <li><b>Duedate:</b> ${task.date}</li>
+                    <li><b>Description:</b> ${task.desc}</li>
                     <li><b>Done:</b> ${task.done}</li>
                 </ul>
 
@@ -393,6 +403,7 @@ exports.recordDeletedPage = function(task, d) {
                     <li><b>What:</b> ${task.what}</li>
                     <li><b>Who:</b> ${task.who}</li>    
                     <li><b>Duedate:</b> ${task.date}</li>
+                    <li><b>Description:</b> ${task.desc}</li>
                     <li><b>Done:</b> ${task.done}</li>
                 </ul>
 
@@ -433,6 +444,49 @@ exports.newUserAddedPage = function(user, d) {
                         <h3><b>New User Created</b></h3>
                     </li>
                     <li><b>Name:</b> ${user.name}</li>
+                </ul>
+
+                <p>
+                <div class="w3-margin">
+                    <button class="w3-btn w3-purple w3-mb-2">
+                        <a href="/">Return to home page</a>
+                    </button>
+                </div>
+
+                <footer class="w3-container w3-blue">
+                    <h5>Generated by A91755 in ${d}</h5>
+                </footer>
+            </div>
+        </body>
+    </html>`
+    return pagHTML
+}
+
+exports.recordInfoPage = function(task, d) {
+    pagHTML = `
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8"/>
+            <link rel="icon" href="favicon.png"/>
+            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <title>Task Manager</title>
+        </head>
+        <body>
+            <div class="w3-card-4">
+                <header class="w3-container w3-green">
+                    <h1>Task Manager</h1>
+                </header>
+                
+                <ul class="w3-ul">
+                    <li>
+                        <h3><b>Task Info</b></h3>
+                    </li>
+                    <li><b>What:</b> ${task.what}</li>
+                    <li><b>Who:</b> ${task.who}</li>    
+                    <li><b>Duedate:</b> ${task.date}</li>
+                    <li><b>Description:</b> ${task.desc}</li>
+                    <li><b>Done:</b> ${task.done}</li>
                 </ul>
 
                 <p>
