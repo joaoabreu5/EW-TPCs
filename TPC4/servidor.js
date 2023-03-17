@@ -20,14 +20,14 @@ function collectRequestBodyData(request, callback) {
     }
 }
 
-// Server creation
-var alunosServer = http.createServer(function (req, res) {
-    // Logger: what was requested and when it was requested
+
+var alunosServer = http.createServer(function (req, res) 
+{
     var d = new Date().toISOString().substring(0, 16)
     console.log(req.method + " " + req.url + " " + d)
 
-    // Handling request
-    if (static.staticResource(req)) {
+    if (static.staticResource(req)) 
+    {
         static.serveStaticResource(req, res)
     }
     else
@@ -49,9 +49,9 @@ var alunosServer = http.createServer(function (req, res) {
                             res.write(pages.initialPage(users, tasks, d))
                             res.end()
                         })
-                        .catch(function(erro){
+                        .catch(function(error){
                             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write("<p>Não foi possível obter a lista... Erro: " + erro)
+                            res.write("<p>Não foi possível obter a lista de utilizadores ou tarefas... Erro: " + error)
                             res.end()
                         })
                 }
@@ -72,9 +72,9 @@ var alunosServer = http.createServer(function (req, res) {
                             res.write(pages.recordInfoPage(task, d))
                             res.end()
                         })
-                        .catch(function(erro){
+                        .catch(function(error){
                             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write("<p>Não foi possível obter a tarefa... Erro: " + erro)
+                            res.write("<p>Não foi possível obter a tarefa... Erro: " + error)
                             res.end()
                         })
                 }
@@ -94,13 +94,13 @@ var alunosServer = http.createServer(function (req, res) {
                             .catch(error => {
                                 console.log('Erro: ' + error);
                                 res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'})
-                                res.write("<p>Unable to update record...</p>")
+                                res.write("<p>Não foi possível atualizar o estado da tarefa... Erro: " + error)
                                 res.end()
                             });
                     })
-                    .catch(function(erro){
+                    .catch(function(error){
                         res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write("<p>Não foi possível obter a lista de tarefas... Erro: " + erro)
+                        res.write("<p>Não foi possível obter a lista de tarefas... Erro: " + error)
                         res.end()
                     })
                 }
@@ -120,13 +120,13 @@ var alunosServer = http.createServer(function (req, res) {
                             .catch(error => {
                                 console.log('Erro: ' + error);
                                 res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'})
-                                res.write("<p>Unable to update record...</p>")
+                                res.write("<p>Não foi possível atualizar o estado da tarefa... Erro: " + error)
                                 res.end()
                             });
                     })
-                    .catch(function(erro){
+                    .catch(function(error){
                         res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write("<p>Não foi possível obter a lista de tarefas... Erro: " + erro)
+                        res.write("<p>Não foi possível obter a lista de tarefas... Erro: " + error)
                         res.end()
                     })
                 }
@@ -147,9 +147,9 @@ var alunosServer = http.createServer(function (req, res) {
                             res.write(pages.editTaskPage(users, tasks, d, task))
                             res.end()
                         })
-                        .catch(function(erro){
+                        .catch(function(error){
                             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write("<p>Não foi possível obter a lista... Erro: " + erro)
+                            res.write("<p>Não foi possível obter a lista de utilizadores ou tarefas... Erro: " + error)
                             res.end()
                         })
                 }
@@ -164,15 +164,15 @@ var alunosServer = http.createServer(function (req, res) {
                                     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'})
                                     res.end(pages.recordDeletedPage(task, d))
                                 })
-                                .catch(function(erro){
+                                .catch(function(error){
                                     res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                                    res.write("<p>Não foi possível apagar o registo... Erro: " + erro)
+                                    res.write("<p>Não foi possível apagar o registo... Erro: " + error)
                                     res.end()
                                 })
                         })
-                        .catch(erro => {
+                        .catch(error => {
                             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write("<p>Não foi possível apagar o registo... Erro: " + erro)
+                            res.write("<p>Não foi possível apagar o registo... Erro: " + error)
                             res.end()
                         })
                 }
@@ -193,13 +193,13 @@ var alunosServer = http.createServer(function (req, res) {
                                 .catch(error => {
                                     console.log('Erro: ' + error);
                                     res.writeHead(500, {'Content-Type': 'text/html;charset=utf-8'})
-                                    res.write("<p>Unable to insert record...</p>")
+                                    res.write("<p>Não foi possível adicionar a tarefa... Erro: " + error)
                                     res.end()
                                 });
                         }
                         else {
                             res.writeHead(201, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write("<p>Unable to collect data from body...</p>")
+                            res.write("<p>Erro na leitura de dados...</p>")
                             res.end()
                         }
                     })
@@ -217,13 +217,13 @@ var alunosServer = http.createServer(function (req, res) {
                                 .catch(error => {
                                     console.log('Erro: ' + error);
                                     res.writeHead(500, {'Content-Type': 'text/html;charset=utf-8'})
-                                    res.write("<p>Unable to insert record...</p>")
+                                    res.write("<p>Não foi possível adicionar o utilizador... Erro: " + error)
                                     res.end()
                                 });
                         }
                         else {
                             res.writeHead(201, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write("<p>Unable to collect data from body...</p>")
+                            res.write("<p>Erro na leitura de dados...</p>")
                             res.end()
                         }
                     })
@@ -245,27 +245,27 @@ var alunosServer = http.createServer(function (req, res) {
                                     .catch(error => {
                                         console.log('Erro: ' + error);
                                         res.writeHead(500, {'Content-Type': 'text/html;charset=utf-8'})
-                                        res.write("<p>Unable to insert record...</p>")
+                                        res.write("<p>Não foi possível atualizar os dados da tarefa... Erro: " + error)
                                         res.end()
                                     });
                             }
                             else {
                                 res.writeHead(201, {'Content-Type': 'text/html;charset=utf-8'})
-                                res.write("<p>Unable to collect data from body...</p>")
+                                res.write("<p>Erro na leitura de dados...</p>")
                                 res.end()
                             }
                         })
                     })
                     .catch(error => {
                         res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write("<p>Unable to get record... Error: " + error)
+                        res.write("<p>Não foi possível obter a tarefa... Erro: " + error)
                         res.end()
                     })   
                 }
                 break
             default: 
                 res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                res.write("<p>" + req.method + " unsupported in this server.</p>")
+                res.write("<p>" + req.method + " não suportado neste servidor.</p>")
                 res.end()
         }
     }
