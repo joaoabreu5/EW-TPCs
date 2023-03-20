@@ -53,8 +53,20 @@ router.get('/tasks/edit/:idTask', function(req, res, next) {
 });
 
 
-/* GET task done. */
+/* GET task 'done' confirm page. */
 router.get('/tasks/done/:idTask', function(req, res, next) {
+  Task.getTask(req.params.idTask)
+    .then(task => {
+      res.render('taskDone', {task: task});
+    })
+    .catch(erro => {
+      res.render('error', {error: erro, message: "Erro na remoção da tarefa pedida."})
+    })
+});
+
+
+/* GET task done. */
+router.get('/tasks/done/:idTask/confirm', function(req, res, next) {
   var idTask = req.params.idTask
   
   Task.getTask(idTask)
@@ -73,8 +85,20 @@ router.get('/tasks/done/:idTask', function(req, res, next) {
 });
 
 
-/* GET task to do. */
+/* GET task 'to do' confirm page. */
 router.get('/tasks/todo/:idTask', function(req, res, next) {
+  Task.getTask(req.params.idTask)
+    .then(task => {
+      res.render('taskToDo', {task: task});
+    })
+    .catch(erro => {
+      res.render('error', {error: erro, message: "Erro na remoção da tarefa pedida."})
+    })
+});
+
+
+/* GET task to do. */
+router.get('/tasks/todo/:idTask/confirm', function(req, res, next) {
   var idTask = req.params.idTask
   
   Task.getTask(idTask)
