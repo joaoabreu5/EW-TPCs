@@ -16,23 +16,22 @@ block content
       br
 
       fieldset
-        legend
-          h3: b Add Task
-        legend
-          label: b What
-          input.w3-input.w3-round(type="text" name="what")            
-          
-          label: b Who
-          select.w3-select(name="who")
-            option(value="" disabled selected) Choose your option
+        legend: h3: b Add Task
 
-            each u in users
-              option(value= u.name) #{u.name}
+        label: b What
+        input.w3-input.w3-round(type="text" name="what")            
+        
+        label: b Who
+        select.w3-select(name="who")
+          option(value="" disabled selected) Choose your option
 
-          label: b Duedate
-          input.w3-input.w3-round(type="date" name="date")
-          label: b Description
-          input.w3-input.w3-round(type="text" name="desc")
+          each u in users
+            option(value= u.name) #{u.name}
+
+        label: b Duedate
+        input.w3-input.w3-round(type="date" name="date")
+        label: b Description
+        input.w3-input.w3-round(type="text" name="desc")
 
       br
       button.w3-btn.w3-round.w3-purple.w3-mb-2(type="submit") Register
