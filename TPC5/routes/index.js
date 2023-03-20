@@ -93,8 +93,20 @@ router.get('/tasks/todo/:idTask', function(req, res, next) {
 });
 
 
-/* GET Delete task. */
+/* GET Delete task page. */
 router.get('/tasks/delete/:idTask', function(req, res, next) {
+  Task.getTask(req.params.idTask)
+    .then(task => {
+      res.render('taskDelete', {task: task});
+    })
+    .catch(erro => {
+      res.render('error', {error: erro, message: "Erro na remoção da tarefa pedida."})
+    })
+});
+
+
+/* GET Delete task. */
+router.get('/tasks/delete/:idTask/confirm', function(req, res, next) {
   Task.deleteTask(req.params.idTask)
     .then(() => {
       res.redirect('/');
