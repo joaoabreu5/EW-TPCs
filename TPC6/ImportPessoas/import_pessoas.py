@@ -21,11 +21,13 @@ def import_json():
     url = 'http://localhost:3000/pessoas/lista'
     headers = {"Content-Type": "application/json"}
 
-    f = 0
-    while f < len(pessoas):
-        i = f
-        f += 91
+    inc = 91
+    i = 0
+    f = inc
+    while i < len(pessoas):
         requests.post(url, headers=headers, json=pessoas[i:f])
+        i = f
+        f += inc
     
     print("'" + path + "' importado para MongoDB com sucesso!")
    
