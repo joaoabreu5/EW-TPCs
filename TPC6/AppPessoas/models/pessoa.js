@@ -30,6 +30,8 @@ var pessoaSchema = new mongoose.Schema({
     sexo: String,
     morada: moradaSchema,
     BI: String,
+    CC: String,
+    descrição: String,
     profissao: String,
     partido_politico: partido_politicoSchema,
     religiao: String,
