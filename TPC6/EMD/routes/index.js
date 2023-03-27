@@ -28,7 +28,7 @@ router.get('/emds', (req, res) => {
       .catch(erro => res.status(527).json({erro: erro, mensagem: "Não consegui obter o número de atletas aptos."}))
   }
   else {
-    res.status(404).json({mensagem: "Pedido não suportado."})
+    res.status(501).json({mensagem: "Pedido não implementado."})
   }
 })
 
