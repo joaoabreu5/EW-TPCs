@@ -27,6 +27,6 @@ def import_json():
         f += 91
         requests.post(url, headers=headers, json=pessoas[i:f])
     
-    print("'" + path + "' importado com sucesso!")
+    print("'" + path + "' importado para MongoDB com sucesso!")
    
 import_json()

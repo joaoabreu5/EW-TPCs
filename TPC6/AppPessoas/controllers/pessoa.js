@@ -14,7 +14,17 @@ module.exports.list = () => {
 }
 
 module.exports.getPessoa = id => {
-    return Pessoa.findOne({_id:id})
+    return Pessoa.findById(id)
+            .then(resposta => {
+                return resposta
+            })
+            .catch(erro => {
+                return erro
+            })
+}
+
+module.exports.getPessoasPorParam = obj => {
+    return Pessoa.find(obj)
             .then(resposta => {
                 return resposta
             })
@@ -43,8 +53,8 @@ module.exports.addListaPessoas = lista => {
             })
 }
 
-module.exports.updatePessoa = p => {
-    return Pessoa.updateOne({_id:p._id}, p)
+module.exports.updatePessoa = (id, p) => {
+    return Pessoa.updateOne({_id: id}, p)
             .then(resposta => {
                 return resposta
             })
