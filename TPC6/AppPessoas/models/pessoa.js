@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 var moradaSchema = new mongoose.Schema({
     cidade: String,
     distrito: String
-})
+}, {_id: false})
 
 var partido_politicoSchema = new mongoose.Schema({
     party_abbr: String,
     party_name: String
-})
+}, {_id: false})
 
 var atributosSchema = new mongoose.Schema({
     fumador: Boolean,
@@ -21,7 +21,7 @@ var atributosSchema = new mongoose.Schema({
     gosta_animais_estimacao: Boolean,
     gosta_dancar: Boolean,
     comida_favorita: String
-})
+}, {_id: false})
 
 var pessoaSchema = new mongoose.Schema({
     _id: String,
@@ -41,6 +41,6 @@ var pessoaSchema = new mongoose.Schema({
     marca_carro: String,
     destinos_favoritos: [String],
     atributos: atributosSchema
-})
+}, {versionKey: false})
 
 module.exports = mongoose.model('pessoa', pessoaSchema)
