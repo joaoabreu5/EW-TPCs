@@ -4,8 +4,7 @@ exports.initialPage= function (users, tasks, d) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -135,8 +134,7 @@ exports.newUserPage = function() {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -166,8 +164,7 @@ exports.editTaskPage = function (users, tasks, d, task) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -302,8 +299,7 @@ exports.recordInsertedPage = function(task, d) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -345,8 +341,7 @@ exports.recordUpdatedPage = function(task, d) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -388,8 +383,7 @@ exports.recordDeletedPage = function(task, d) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -431,8 +425,7 @@ exports.newUserAddedPage = function(user, d) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>
@@ -470,8 +463,7 @@ exports.recordInfoPage = function(task, d) {
     <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="icon" href="favicon.png"/>
-            <link rel="stylesheet" type="text/css" href="w3.css"/>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css"/>
             <title>Task Manager</title>
         </head>
         <body>

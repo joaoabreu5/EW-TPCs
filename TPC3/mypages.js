@@ -9,7 +9,7 @@ exports.genMainPage = function(lista, data, titulo_pag) {
         <head>
             <meta charset="UTF-8"/>
             <title>About People...</title>
-            <link rel="stylesheet" type="text/css" href="w3.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css">
             <style>
                 .w3-bar {
                     position: fixed;
@@ -102,7 +102,7 @@ exports.genPersonPage = function(p, d) {
         <head>
             <meta charset="UTF-8"/>
             <title>Person Page</title>
-            <link rel="stylesheet" type="text/css" href="w3.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css">
             <style>
                 .w3-bar {
                     position: fixed;
@@ -243,7 +243,7 @@ exports.genGenderPage = function(pessoas, data) {
         <head>
             <meta charset="UTF-8"/>
             <title>About Gender...</title>
-            <link rel="stylesheet" type="text/css" href="w3.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css">
             <style>
                 .w3-bar {
                     position: fixed;
@@ -349,7 +349,7 @@ exports.genSportsPage = function(pessoas, data) {
         <head>
             <meta charset="UTF-8"/>
             <title>About Sports...</title>
-            <link rel="stylesheet" type="text/css" href="w3.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css">
             <style>
                 .w3-bar {
                     position: fixed;
@@ -440,7 +440,7 @@ exports.genPeopleList_SportPage = function(lista, desporto, data) {
         <head>
             <meta charset="UTF-8"/>
             <title>About People...</title>
-            <link rel="stylesheet" type="text/css" href="w3.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css">
             <style>
                 .w3-bar {
                     position: fixed;
@@ -549,7 +549,7 @@ exports.genTop10JobsPage = function(pessoas, data) {
         <head>
             <meta charset="UTF-8"/>
             <title>Top 10 Jobs</title>
-            <link rel="stylesheet" type="text/css" href="w3.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/w3.css">
             <style>
                 .w3-bar {
                     position: fixed;

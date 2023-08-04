@@ -4,7 +4,7 @@ var Pessoa = require('../models/pessoa')
 module.exports.list = () => {
     return Pessoa
             .find()
-            .sort({nome:1})
+            .sort({ nome: 1 })
             .then(resposta => {
                 return resposta
             })
@@ -54,7 +54,7 @@ module.exports.addListaPessoas = lista => {
 }
 
 module.exports.updatePessoa = (id, p) => {
-    return Pessoa.updateOne({_id: id}, p)
+    return Pessoa.updateOne({ _id: id }, p)
             .then(resposta => {
                 return resposta
             })
@@ -64,7 +64,7 @@ module.exports.updatePessoa = (id, p) => {
 }
 
 module.exports.deletePessoa = id => {
-    return Pessoa.deleteOne({_id:id})
+    return Pessoa.deleteOne({ _id: id })
             .then(resposta => {
                 return resposta
             })

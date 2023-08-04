@@ -40,9 +40,8 @@ pagHTML = """<!DOCTYPE html>
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <center>
-            <h1>Mapa Virtual</h1>
-        </center>
+        <h1 style="text-align: center;">Mapa Virtual</h1>
+        
         <!-- Índice -->
         <a name="indice"/>
         <h2>Índice</h2>
@@ -85,9 +84,6 @@ except:
     pass
     
 for c in cidades:
-    file_name = cidades_folder + c['id'] + ".html"
-    file = open(file_name, "w")
-    
     str_ligacoes = ""
     if c['id'] in dict_ligacoes:
         str_ligacoes+="""<b>Ligações:</b>
@@ -117,12 +113,12 @@ for c in cidades:
             {str_ligacoes}
         </p>
         <address>[<a href="indice">Voltar ao índice</a>]</address>
-        <center>
-            <hr width="80%"/>
-        </center>    
+        <hr width="80%"/>
     </body>
 </html>
 """
     
+    file_name = cidades_folder + c['id'] + ".html"
+    file = open(file_name, "w")
     file.write(pagHTML)
     file.close()

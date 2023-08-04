@@ -15,26 +15,26 @@ function staticResource(request){
 
 exports.staticResource = staticResource
 
-function serveStaticResource(req, res){
+function serveStaticResource(req, res) {
     var partes = req.url.split('/')
-    var file = partes[partes.length -1 ]
-    fs.readFile('public/' + file, (erro, dados)=>{
-        if(erro){
+    var file = partes[partes.length - 1]
+    fs.readFile('public' + req.url, (erro, dados)=>{
+        if (erro) {
             console.log('Erro: ficheiro não encontrado ' + erro)
             res.statusCode = 404
             res.end('Erro: ficheiro não encontrado ' + erro)
         }
-        else{
-            if(file == 'favicon.ico'){
+        else {
+            if (file == 'favicon.ico') {
                 res.setHeader('Content-Type', 'image/x-icon')
                 res.end(dados)
             }
-            else if(file == 'w3.css'){
+            else if(file == 'w3.css') {
                 res.setHeader('Content-Type', 'text/css')
                 res.end(dados)
             }
             // PNG images
-            else{
+            else {
                 res.setHeader('Content-Type', 'image/png')
                 res.end(dados)
             }    

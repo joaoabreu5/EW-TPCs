@@ -26,17 +26,14 @@ for l in ligacoes:
     else:
         dict_ligacoes[l['origem']].append(l)
 
-pagHTLM = """
-<!DOCTYPE html>
+pagHTLM = """<!DOCTYPE html>
 <html>
     <head>
         <title>Mapa Virtual</title>
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <center>
-            <h1>Mapa Virtual</h1>
-        </center>
+        <h1 style="text-align: center;">Mapa Virtual</h1>
         <table>
             <tr>
                 <!-- Índice -->
@@ -48,52 +45,52 @@ pagHTLM = """
 
 for c in cidades:
     pagHTLM += f"""
-    <li>
-        <a href="#{c['id']}">{c['nome']}</a>
-    </li>
+                        <li>
+                            <a href="#{c['id']}">{c['nome']}</a>
+                        </li>
     """
     
 pagHTLM += """
-</ul>
-    </td>
-    <!-- Conteúdo -->
-    <td>
+                    </ul>
+                </td>
+                <!-- Conteúdo -->
+                <td>
 """
 
 for c in cidades:
     str_ligacoes = ""
     if c['id'] in dict_ligacoes:
         str_ligacoes+="""<b>Ligações:</b>
-            <ul>"""
+                            <ul>"""
         for l in dict_ligacoes[c['id']]:
             str_ligacoes += f"""
-                <li>
-                    <a href="#{l['destino']}">{dict_cidades[l['destino']]['nome']}</a>: {l['distância']} km
-                </li>
+                                <li>
+                                    <a href="#{l['destino']}">{dict_cidades[l['destino']]['nome']}</a>: {l['distância']} km
+                                </li>
             """
-        str_ligacoes+="""</ul>"""
+        str_ligacoes+="""               </ul>"""
     
     pagHTLM += f"""
-        <a name="{c['id']}"/>
-        <h3>{c['nome']}</h3>
-        <p><b>População:</b> {c['população']}</p>
-        <p><b>Descrição:</b> {c['descrição']}</p>
-        <p><b>Distrito:</b> {c['distrito']}</p>
-        <p>
-            {str_ligacoes}
-        </p>
-        <address>[<a href="#indice">Voltar ao índice</a>]</address>
-        <center>
-            <hr width="80%"/>
-        </center>    
+                    <a name="{c['id']}"/>
+                    <h3>{c['nome']}</h3>
+                    <p><b>População:</b> {c['população']}</p>
+                    <p><b>Descrição:</b> {c['descrição']}</p>
+                    <p><b>Distrito:</b> {c['distrito']}</p>
+                    <p>
+                        {str_ligacoes}
+                    </p>
+                    <address>[<a href="#indice">Voltar ao índice</a>]</address>
+                    <hr width="80%"/>    
     """
     
 pagHTLM += """
-</td>
+                </td>
             </tr>
         </table>
     </body>
 </html>
 """
 
-print(pagHTLM)
+f = open('mapa.html', 'w')
+f.write(pagHTLM)
+f.close()

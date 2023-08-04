@@ -20,7 +20,6 @@ function collectRequestBodyData(request, callback) {
     }
 }
 
-
 var alunosServer = http.createServer(function (req, res) 
 {
     var d = new Date().toISOString().substring(0, 16)
@@ -32,7 +31,7 @@ var alunosServer = http.createServer(function (req, res)
     }
     else
     {
-        switch(req.method)
+        switch (req.method)
         {
             case "GET": 
                 if (req.url == "/") 
