@@ -1,7 +1,7 @@
 # Engenharia Web - TPC's
 
 * João Paulo Machado Abreu - **a91755**
-* https://github.com/joaoabreu5/EngWeb2023
+* https://github.com/joaoabreu5/EW-TPCs
 
 **Licenciatura em Engenharia Informática**
 
